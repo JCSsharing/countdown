@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    @font-face {
+  font-family: 'ITCFranklinGothicLTBookCondensed';
+  src: url('https://cdn.jsdelivr.net/gh/JCSsharing/countdown@main/ITCFranklinGothicLTBookCompressed_normal_condensed.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ITCFranklinGothicLTDemiCompressed';
+  src: url('https://cdn.jsdelivr.net/gh/JCSsharing/countdown@main/ITCFranklinGothicLTDemiCompressed_normal_condensed.woff') format('woff');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'ITCFranklinGothicLTDemiCompressed', Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  width: 50%; /* Adjust based on layout needs */
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Opacity adjustable */
+  z-index: 1; /* Ensures overlay is above the image but below the content */
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: white; /* Ensure text color is white */
+
+}
+.title {
+  margin-top:220px;
+  font-size: 85px;
+  font-weight: bold;
+  line-height: 0.1;
+  letter-spacing: 6px;
+}
+
+#euro-days-bold, #copa-days-bold, #olympics-days-bold, #para-days-bold {
+  font-weight: bold;
+  font-family: 'ITCFranklinGothicLTDemiCompressed', Arial, sans-serif;
+}
+
+.days-left .text-days {
+  font-family: 'ITCFranklinGothicLTBookCondensed', Arial, sans-serif;
+  font-weight: normal;
+}
+
+.countdown-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 120px));
+  grid-template-rows: 40px 22px;
+  grid-gap: 10px;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 40px; /* Adjust for spacing */
+  text-align: center;
+  
+}
+
+.countdown-label {
+  font-family: 'ITCFranklinGothicLTBookCondensed', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: regular;
+  letter-spacing: 3px;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  grid-row: 2;
+  margin-top: 10px;
+}
+
+.countdown-item {
+  font-weight: bold;
+  font-size: 60px;
+  letter-spacing: 3px;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensuring countdown items are spaced out */
+  grid-row: 1;
+}
+
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+  <!-- UEFA EURO 2024 (Already correct) -->
+  <div class="grid-item" style="background-image: url('https://raw.githubusercontent.com/JCSsharing/countdown/2bf494ecca4b7d2824d5de13f8453804d6d3969a/euro.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="title-container">
+        <div class="title">UEFA EURO</div>
+      </div>
+      <div class="countdown-container">
+        <div class="countdown-item" id="euro-days-bold">00</div>
+        <div class="countdown-item" id="euro-hours">00</div>
+        <div class="countdown-item" id="euro-minutes">00</div>
+        <div class="countdown-item" id="euro-seconds">00</div>
+        <div class="countdown-label">DAYS</div>
+        <div class="countdown-label">HOURS</div>
+        <div class="countdown-label">MINUTES</div>
+        <div class="countdown-label">SECONDS</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- COPA AMERICA 2024 (Adapted) -->
+  <div class="grid-item" style="background-image: url('https://raw.githubusercontent.com/JCSsharing/countdown/2bf494ecca4b7d2824d5de13f8453804d6d3969a/copa.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="title-container">
+        <div class="title">COPA AMERICA</div>
+      </div>
+      <div class="countdown-container">
+        <div class="countdown-item" id="copa-days-bold">00</div>
+        <div class="countdown-item" id="copa-hours">00</div>
+        <div class="countdown-item" id="copa-minutes">00</div>
+        <div class="countdown-item" id="copa-seconds">00</div>
+        <div class="countdown-label">DAYS</div>
+        <div class="countdown-label">HOURS</div>
+        <div class="countdown-label">MINUTES</div>
+        <div class="countdown-label">SECONDS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OLYMPIC GAMES PARIS 2024 (Adapted) -->
+  <div class="grid-item" style="background-image: url('https://raw.githubusercontent.com/JCSsharing/countdown/2bf494ecca4b7d2824d5de13f8453804d6d3969a/olympics.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="title-container">
+        <div class="title">OLYMPIC GAMES</div>
+      </div>
+      <div class="countdown-container">
+        <div class="countdown-item" id="olympics-days-bold">00</div>
+        <div class="countdown-item" id="olympics-hours">00</div>
+        <div class="countdown-item" id="olympics-minutes">00</div>
+        <div class="countdown-item" id="olympics-seconds">00</div>
+        <div class="countdown-label">DAYS</div>
+        <div class="countdown-label">HOURS</div>
+        <div class="countdown-label">MINUTES</div>
+        <div class="countdown-label">SECONDS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARALYMPIC GAMES PARIS 2024 (Adapted) -->
+  <div class="grid-item" style="background-image: url('https://raw.githubusercontent.com/JCSsharing/countdown/2bf494ecca4b7d2824d5de13f8453804d6d3969a/para.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="title-container">
+        <div class="title">PARALYMPIC GAMES</div>
+      </div>
+      <div class="countdown-container">
+        <div class="countdown-item" id="para-days-bold">00</div>
+        <div class="countdown-item" id="para-hours">00</div>
+        <div class="countdown-item" id="para-minutes">00</div>
+        <div class="countdown-item" id="para-seconds">00</div>
+        <div class="countdown-label">DAYS</div>
+        <div class="countdown-label">HOURS</div>
+        <div class="countdown-label">MINUTES</div>
+        <div class="countdown-label">SECONDS</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    // Set the end date for each countdown
+const euroEndDate = new Date("2024-06-14T21:00:00").getTime(); // UEFA EURO 2024
+const copaEndDate = new Date("2024-06-20T20:00:00-04:00").getTime(); // COPA AMERICA 2024 (GMT-4)
+const olympicsEndDate = new Date("2024-07-26T19:30:00+02:00").getTime(); // Paris 2024 Olympics (CET)
+const paraEndDate = new Date("2024-08-28T20:00:00+02:00").getTime(); // Paris 2024 Paralympic Games (CET)
+
+const countdowns = [
+  { id: "euro", endDate: euroEndDate },
+  { id: "copa", endDate: copaEndDate },
+  { id: "olympics", endDate: olympicsEndDate },
+  { id: "para", endDate: paraEndDate }
+];
+
+// Function to update countdown
+function updateCountdown() {
+  countdowns.forEach(countdown => {
+    const now = new Date().getTime();
+    const distance = countdown.endDate - now;
+
+    if (distance <= 0) {
+      document.getElementById(`${countdown.id}-days-bold`).textContent = "00";
+      document.getElementById(`${countdown.id}-hours`).textContent = "00";
+      document.getElementById(`${countdown.id}-minutes`).textContent = "00";
+      document.getElementById(`${countdown.id}-seconds`).textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById(`${countdown.id}-days-bold`).textContent = days < 10 ? `0${days}` : days;
+    document.getElementById(`${countdown.id}-hours`).textContent = hours < 10 ? `0${hours}` : hours;
+    document.getElementById(`${countdown.id}-minutes`).textContent = minutes < 10 ? `0${minutes}` : minutes;
+    document.getElementById(`${countdown.id}-seconds`).textContent = seconds < 10 ? `0${seconds}` : seconds;
+  });
+}
+
+// Update the countdown every second
+setInterval(updateCountdown, 1000); // Changed to update every second
+
+// Initial update
+updateCountdown();
+
+  </script>
+</body>
+</html>
